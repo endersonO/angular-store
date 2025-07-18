@@ -1,4 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
+
+interface ImageLoadedEvent {
+  imgUrlCharged: string;
+}
 
 @Component({
   selector: 'app-img',
@@ -9,4 +13,18 @@ import { Component, input } from '@angular/core';
 export class Img {
   img = input<string>();
   imgUrl = input<string>();
+
+  imgUrlDefault = "https://picsum.photos/200";
+  currentImgUrl = computed(() => this.imgUrl() || this.imgUrlDefault);
+
+  onImageError(event: any) {
+    event.target.src = this.imgUrlDefault
+  }
+  loaded = output<ImageLoadedEvent>();
+
+  imgLoaded() {
+    this.loaded.emit({
+      imgUrlCharged: this.currentImgUrl()
+    })
+  }
 }

@@ -1,7 +1,1 @@
-<p>img works!</p>
-<h1>{{ img() }}</h1>
-@if (imgUrl()) {
-  <img width="200" [src]="imgUrl()" alt="" />
-} @else {
-  <img width="200" src="https://picsum.photos/200" alt="" />
-}
+<img width="200" (load)="imgLoaded()" [src]="currentImgUrl()" alt="" (error)="onImageError($event)"/>

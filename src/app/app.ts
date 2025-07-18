@@ -1,4 +1,4 @@
-import { Component, Directive, signal } from '@angular/core';
+import { Component, Directive, output, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Img } from './components/img/img';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -32,4 +32,7 @@ export class App {
       initialValue: "https://www.w3schools.com/howto/img_avatar.png"
     }
   )
+  onLoaded(event: any) {
+    console.log("log padre", event)
+  }
 }

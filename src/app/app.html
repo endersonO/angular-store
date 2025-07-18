@@ -1,11 +1,5 @@
 <p>
-  Text: 
-  <input type="text" [formControl]="imgParentInputControl" id="imgParentInputControl"/>
-</p>
-<h2>Text value: {{imgValue()}}</h2>
-<p>
   imgUrl: 
   <input type="text" [formControl]="imgParentInputUrlControl" id="imgParentInputUrlControl"/>
 </p>
-<h2>{{imgUrl()}}</h2>
-<app-img [img]="imgValue()" [imgUrl]="imgUrl()" ></app-img>
+<app-img [img]="imgValue()" [imgUrl]="imgUrl()" (loaded)="onLoaded($event)" ></app-img>
