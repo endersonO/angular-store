@@ -3,3 +3,6 @@
   <input type="text" [formControl]="imgParentInputUrlControl" id="imgParentInputUrlControl"/>
 </p>
 <app-img [img]="imgValue()" [imgUrl]="imgUrl()" (loaded)="onLoaded($event)" ></app-img>
+@for (product of productList; track product.id) {
+  <app-product [product]="product"></app-product>
+}
