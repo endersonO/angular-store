@@ -23,12 +23,6 @@ export class App {
     "https://www.w3schools.com/howto/img_avatar.png", {
     nonNullable: true,
   });
-  imgValue = toSignal(
-    this.imgParentInputControl.valueChanges, 
-    {
-      initialValue: ""
-    }
-  );
   imgUrl = toSignal(this.imgParentInputUrlControl.valueChanges, 
     {
       initialValue: "https://www.w3schools.com/howto/img_avatar.png"

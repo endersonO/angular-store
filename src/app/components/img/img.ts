@@ -11,9 +11,7 @@ interface ImageLoadedEvent {
   styleUrl: './img.scss'
 })
 export class Img {
-  img = input<string>();
   imgUrl = input<string>();
-
   imgUrlDefault = "https://picsum.photos/200";
   currentImgUrl = computed(() => this.imgUrl() || this.imgUrlDefault);
 
