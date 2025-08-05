@@ -8,21 +8,21 @@ interface ImageLoadedEvent {
   selector: 'app-img',
   imports: [],
   templateUrl: './img.html',
-  styleUrl: './img.scss'
+  styleUrl: './img.scss',
 })
 export class Img {
   imgUrl = input<string>();
-  imgUrlDefault = "https://picsum.photos/200";
+  imgUrlDefault = 'https://picsum.photos/200';
   currentImgUrl = computed(() => this.imgUrl() || this.imgUrlDefault);
 
   onImageError(event: any) {
-    event.target.src = this.imgUrlDefault
+    event.target.src = this.imgUrlDefault;
   }
   loaded = output<ImageLoadedEvent>();
 
   imgLoaded() {
     this.loaded.emit({
-      imgUrlCharged: this.currentImgUrl()
-    })
+      imgUrlCharged: this.currentImgUrl(),
+    });
   }
 }
