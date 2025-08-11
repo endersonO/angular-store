@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   Component,
   inject,
@@ -14,7 +14,7 @@ import { ProductService } from '@shared/services/product/product.service';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './product-detail.component.html',
 })
 export default class ProductDetail implements OnInit {
