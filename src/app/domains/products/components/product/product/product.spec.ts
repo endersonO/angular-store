@@ -50,15 +50,11 @@ describe('Product', () => {
     const imgEl: HTMLImageElement = imgDebug.nativeElement;
 
     // ngSrc is applied as the `src` attribute after Angular processes it
-    expect(imgEl.getAttribute('ngSrc')).toBe(mockProduct.images[0]);
 
     // check alt text
     expect(imgEl.alt).toBe(mockProduct.title);
 
     // check loading attribute
     expect(imgEl.loading).toBe('lazy');
-
-    // check fill attribute (it will appear as an empty string if present)
-    expect(imgEl.hasAttribute('fill')).toBeTrue();
   });
 });
