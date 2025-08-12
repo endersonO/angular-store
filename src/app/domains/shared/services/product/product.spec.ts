@@ -12,6 +12,7 @@ import { provideHttpClient } from '@angular/common/http';
 describe('ProductService', () => {
   let service: ProductService;
   let httpMock: HttpTestingController;
+  const apiUrl = environment.apiUrl;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -37,7 +38,7 @@ describe('ProductService', () => {
       expect(products[0].title).toBe(ProductListMock[0].title);
     });
 
-    const req = httpMock.expectOne(`${environment.apiUrl}/products`);
+    const req = httpMock.expectOne(`${apiUrl}/products`);
 
     expect(req.request.method).toBe('GET');
     req.flush(mockProducts);
@@ -50,9 +51,7 @@ describe('ProductService', () => {
       expect(product.title).toBe(mockProduct.title);
     });
 
-    const req = httpMock.expectOne(
-      `${environment.apiUrl}/products/${mockProduct.id}`,
-    );
+    const req = httpMock.expectOne(`${apiUrl}/products/${mockProduct.id}`);
 
     expect(req.request.method).toBe('GET');
     req.flush(mockProduct);
@@ -66,7 +65,7 @@ describe('ProductService', () => {
       expect(products).toEqual([]);
     });
 
-    const req = httpMock.expectOne(`${environment.apiUrl}/products`);
+    const req = httpMock.expectOne(`${apiUrl}/products`);
     expect(req.request.method).toBe('GET');
     req.flush(emptyProducts);
   });
@@ -82,7 +81,7 @@ describe('ProductService', () => {
       },
     });
 
-    const req = httpMock.expectOne(`${environment.apiUrl}/products`);
+    const req = httpMock.expectOne(`${apiUrl}/products`);
     expect(req.request.method).toBe('GET');
     req.flush('Server Error', { status: 500, statusText: errorMessage });
   });
@@ -98,9 +97,7 @@ describe('ProductService', () => {
       },
     });
 
-    const req = httpMock.expectOne(
-      `${environment.apiUrl}/products/${productId}`,
-    );
+    const req = httpMock.expectOne(`${apiUrl}/products/${productId}`);
     expect(req.request.method).toBe('GET');
     req.flush('Product not found', { status: 404, statusText: 'Not Found' });
   });
