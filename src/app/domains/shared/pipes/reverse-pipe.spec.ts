@@ -22,6 +22,6 @@ describe('ReversePipePipe', () => {
 
   it('has to revert string with spaces and special characters', () => {
     const result = pipe.transform('hello world!');
-    expect(result).toBe('!ldrow olleh');
+    expect(result).toBe('!dlrow olleh');
   });
 });
