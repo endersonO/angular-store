@@ -2,21 +2,14 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { ProductModel } from '@model/product.model';
-import { ReversePipe } from '@shared/pipes/reverse-pipe';
 import { TimeAgoPipe } from '@shared/pipes/time-ago-pipe';
 
 @Component({
   selector: 'app-product',
-  imports: [
-    CommonModule,
-    ReversePipe,
-    TimeAgoPipe,
-    RouterLinkWithHref,
-    NgOptimizedImage,
-  ],
-  templateUrl: './product.html',
+  imports: [CommonModule, TimeAgoPipe, RouterLinkWithHref, NgOptimizedImage],
+  templateUrl: './product.component.html',
 })
-export class Product {
+export class ProductComponent {
   productInput = input.required<ProductModel>();
   addToCart = output<ProductModel>();
 

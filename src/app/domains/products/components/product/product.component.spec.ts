@@ -1,23 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Product } from './product';
+import { ProductComponent } from './product.component';
 import { ProductListMock } from '@shared/services/product/__mocks__/product.mock';
 import { ProductModel } from '@model/product.model';
 import { By } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 
 describe('Product', () => {
-  let component: Product;
-  let fixture: ComponentFixture<Product>;
+  let component: ProductComponent;
+  let fixture: ComponentFixture<ProductComponent>;
 
   const mockProduct: ProductModel = ProductListMock[0];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Product],
+      imports: [ProductComponent],
       providers: [provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Product);
+    fixture = TestBed.createComponent(ProductComponent);
     component = fixture.componentInstance;
 
     // Set required input before change detection
