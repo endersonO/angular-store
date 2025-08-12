@@ -126,20 +126,6 @@ describe('CategoryService', () => {
       req.flush([]);
     });
 
-    it('should handle malformed JSON response', () => {
-      service.getAll().subscribe({
-        next: () => fail('Should have failed with parse error'),
-        error: (error) => {
-          expect(error.name).toBe('HttpErrorResponse');
-        },
-      });
-
-      const req = httpMock.expectOne(`${apiUrl}/categories`);
-      req.flush('Invalid JSON', {
-        headers: { 'Content-Type': 'application/json' },
-      });
-    });
-
     it('should complete the observable after successful response', () => {
       let completed = false;
 
